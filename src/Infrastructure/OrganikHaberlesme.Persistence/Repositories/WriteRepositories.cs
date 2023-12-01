@@ -11,23 +11,35 @@ namespace OrganikHaberlesme.Persistence.Repositories
 {
     public class WriteRepositories<T> : IWriteRepository<T> where T : BaseEntity
     {
-        private readonly AppDbContext _context;
+        protected readonly AppDbContext _context;
 
         public WriteRepositories(AppDbContext context)
         {
             _context = context;
         }
 
-        public async Task<bool> AddAsync(T entity)
+        public bool Add(T entity)
         {
-            await _context.Set<T>().AddAsync(entity);
-            return (await _context.SaveChangesAsync()) > 0;
+            _context.Set<T>().Add(entity);
+            return _context.SaveChanges() > 0;
         }
 
-        public async Task<bool> Update(T entity)
+        public async Task<bool> AddAsync(T entity)
         {
-             _context.Set<T>().Update(entity);
-             return (await _context.SaveChangesAsync()) > 0;
+            await _context.AddAsync(entity);
+            return (await  _context.SaveChangesAsync()) > 0;
+        }
+
+        public bool Update(T entity)
+        {
+            _context.Update(entity);
+            return _context.SaveChanges()> 0;
+        }
+
+        public async Task<bool> UpdateAsync(T entity)
+        {
+            await Task.Run(() => _context.Update(entity));
+            return (await _context.SaveChangesAsync()) > 0;
         }
     }
 }
