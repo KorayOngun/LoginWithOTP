@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganikHaberlesme.Domain.Entities
+namespace OrganikHaberlesme.Application.DTOs
 {
-    public class User : BaseEntity
+    public class LoginClaimUserData
     {
-        public string Name { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
         public string PhoneNumber { get; set; }
-        public bool TwoFactor { get; set; }
     }
 }

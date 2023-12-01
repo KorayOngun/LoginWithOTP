@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganikHaberlesme.Application.Features.Commands.UserCommands.LoginUser
+namespace OrganikHaberlesme.Application.DTOs.LoginStatus
 {
-    public class LoginUserResponse
+    public class TwoFactorWaiting : LoginUserResponse
     {
         public Guid OtpController { get; set; }
     }

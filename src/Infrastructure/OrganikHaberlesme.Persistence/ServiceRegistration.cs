@@ -33,9 +33,10 @@ namespace OrganikHaberlesme.Persistence
                 {
                     context.Users.AddRange(new User[]
                     {
-                    new(){Id = Guid.NewGuid(),CreatedDate = DateTime.Now,Email="koray@mail",Name="koray",Password="123",PhoneNumber="+9050505050505"},
-                    new(){Id = Guid.NewGuid(),CreatedDate = DateTime.Now,Email="ali@mail",Name="ali",Password="321",PhoneNumber="+90303030303003"},
-                    new(){Id = Guid.NewGuid(),CreatedDate = DateTime.Now,Email="veli@mail",Name="veli",Password="132",PhoneNumber="+902020202020202"},
+                    new(){Id = Guid.NewGuid(),CreatedDate = DateTime.Now,Email="koray@mail",Name="koray",Password="123",PhoneNumber="+9050505050505",TwoFactor=true },
+                    new(){Id = Guid.NewGuid(),CreatedDate = DateTime.Now,Email="ali@mail",Name="ali",Password="321",PhoneNumber="+90303030303003",TwoFactor=true},
+                    new(){Id = Guid.NewGuid(),CreatedDate = DateTime.Now,Email="veli@mail",Name="veli",Password="132",PhoneNumber="+902020202020202",TwoFactor=true},
+                    new(){Id = Guid.NewGuid(),CreatedDate = DateTime.Now,Email="koraygg28@gmail.com",Name="k",Password="1",PhoneNumber="+654654",TwoFactor=true},
                     });
                 }
                 context.SaveChanges();

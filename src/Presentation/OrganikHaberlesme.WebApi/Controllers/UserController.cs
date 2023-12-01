@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OrganikHaberlesme.Application.Features.Commands.UserCommands.CreateUser;
 using OrganikHaberlesme.Application.Features.Commands.UserCommands.LoginUser;
+using OrganikHaberlesme.Application.Features.Commands.UserCommands.OtpLogin;
 using OrganikHaberlesme.Application.Interfaces.Repositories.UserRepo;
 
 namespace OrganikHaberlesme.WebApi.Controllers
@@ -27,6 +28,17 @@ namespace OrganikHaberlesme.WebApi.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginUserRequest request)
+        {
+            return Ok(await _mediator.Send(request));
+        }
+        [HttpPost]
+        public async Task<IActionResult> OtpClaim(OtpClaimRequest request)
+        {
+            return Ok(await _mediator.Send(request));   
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> OtpCheck(OtpLoginRequest request)
         {
             return Ok(await _mediator.Send(request));
         }

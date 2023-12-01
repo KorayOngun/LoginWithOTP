@@ -1,6 +1,7 @@
 using OrganikHaberlesme.Persistence;
 using OrganikHaberlesme.Application;
-
+using OrganikHaberlesme.Infrastructure;
+using OrganikHaberlesme.LoginClaim;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,10 +14,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var _dbPath = builder.Configuration.GetConnectionString("SqlCon");
+ 
 
 
 builder.Services.AddPersistence(_dbPath);
 builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddLoginClaim("a");
 
 var app = builder.Build();
 

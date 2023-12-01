@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\OrganikHaberlesme.Application\OrganikHaberlesme.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\OrganikHaberlesme.Infrastructure\OrganikHaberlesme.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\OrganikHaberlesme.LoginClaim\OrganikHaberlesme.LoginClaim.csproj" />
     <ProjectReference Include="..\..\Infrastructure\OrganikHaberlesme.Persistence\OrganikHaberlesme.Persistence.csproj" />
   </ItemGroup>
 

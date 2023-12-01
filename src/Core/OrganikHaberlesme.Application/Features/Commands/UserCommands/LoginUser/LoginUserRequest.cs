@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using OrganikHaberlesme.Application.DTOs.LoginStatus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
