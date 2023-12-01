@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 var _dbPath = builder.Configuration.GetConnectionString("SqlCon");
 
+
 builder.Services.AddPersistence(_dbPath);
 builder.Services.AddApplication();
 

@@ -9,6 +9,6 @@ namespace OrganikHaberlesme.Application.Interfaces.Repositories.UserRepo
 {
     public interface IUserReadRepository : IReadRepository<User>
     {
-
+        Task<User> GetByUserName(string userName);
     }
 }

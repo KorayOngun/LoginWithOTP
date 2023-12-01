@@ -40,7 +40,6 @@ namespace OrganikHaberlesme.Persistence.Repositories
             IQueryable<T> queryable = _context.Set<T>();
             if (enableTracking == false) queryable = queryable.AsNoTracking();
             return await queryable.FirstOrDefaultAsync(b=>b.Id == id);
-           
         }
 
         public async Task<bool> IsExistAsync(Expression<Func<T, bool>> predicate)

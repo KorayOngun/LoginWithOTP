@@ -23,7 +23,7 @@ namespace OrganikHaberlesme.Application.Features.Commands.UserCommands.CreateUse
 
         public async Task<CreateUserResponse> Handle(CreateUserRequest request, CancellationToken cancellationToken)
         {
-            Expression<Func<User, bool>> condition = (u => u.PhoneNumber == request.PhoneNumber || u.Email == request.Email);
+            Expression<Func<User, bool>> condition = (u => u.PhoneNumber == request.PhoneNumber || u.Email == request.Email  ||u.Name==request.Name);
 
             if(await _readRepo.IsExistAsync(condition) == false)
             {

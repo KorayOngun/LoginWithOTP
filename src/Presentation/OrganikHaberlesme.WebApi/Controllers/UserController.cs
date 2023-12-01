@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OrganikHaberlesme.Application.Features.Commands.UserCommands.CreateUser;
+using OrganikHaberlesme.Application.Features.Commands.UserCommands.LoginUser;
 using OrganikHaberlesme.Application.Interfaces.Repositories.UserRepo;
 
 namespace OrganikHaberlesme.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -19,7 +20,13 @@ namespace OrganikHaberlesme.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(CreateUserRequest request)
+        public async Task<IActionResult> Create(CreateUserRequest request)
+        {
+            return Ok(await _mediator.Send(request));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginUserRequest request)
         {
             return Ok(await _mediator.Send(request));
         }
