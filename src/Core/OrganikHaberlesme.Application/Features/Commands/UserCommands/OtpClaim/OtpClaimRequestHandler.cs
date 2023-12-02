@@ -14,7 +14,6 @@ namespace OrganikHaberlesme.Application.Features.Commands.UserCommands.OtpClaim
     public class OtpClaimRequestHandler : IRequestHandler<OtpClaimRequest, LoginUserResponse>
     {
         private readonly ILoginClaimServices _loginClaimServices;
-
         public OtpClaimRequestHandler(ILoginClaimServices loginClaimServices)
         {
             _loginClaimServices = loginClaimServices;

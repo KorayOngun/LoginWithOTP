@@ -22,7 +22,7 @@ namespace OrganikHaberlesme.Application.Features.Commands.UserCommands.OtpLogin
         {
             if(await _loginClaimServices.OtpCheck(request.OtpController, request.Otp))
             {
-                // TODO : Burayı düzeltmeyi unutma !!!
+                //TODO 01: Burayı düzeltmeyi unutma !!!
                 return new LoginSuccess() { Token = "al sana token" ,Status = Enums.LoginStatus.Success};
             }
             return new LoginError { Message = "hata hata hata", Status = Enums.LoginStatus.Error };

@@ -25,18 +25,16 @@ namespace OrganikHaberlesme.Application.Features.Commands.UserCommands.LoginUser
         {
             if (await _userReadRepository.IsExistAsync(u=>u.Name == request.UserName && u.Password == request.Password))
             {
-                if ((await _userReadRepository.GetByUserName(request.UserName)).TwoFactor == true)
+                var user = (await _userReadRepository.GetByUserName(request.UserName));
+                if (user.TwoFactor==true)
                 {
                     var otpController = Guid.NewGuid();
-
-                    var user = (await _userReadRepository.GetByUserName(request.UserName));
 
                     await _loginClaimServices.CreateLoginClaimAsync(otpController, new() { Email = user.Email, PhoneNumber = user.PhoneNumber });
 
                     return new TwoFactorWaiting { OtpController = otpController, Status = Enums.LoginStatus.TwoFactorWaiting };
                 }
-                return new LoginSuccess { Token =" al sana token", Status = Enums.LoginStatus.Success };
-              
+                return new LoginSuccess { Token ="Token", Status = Enums.LoginStatus.Success };
             }
             return new LoginError {Message = "hata hata hata",Status = Enums.LoginStatus.Error };
         }

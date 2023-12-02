@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Hangfire;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OrganikHaberlesme.Application.Interfaces.Messages;
 using OrganikHaberlesme.Infrastructure.MessageService.EmailMessage;
@@ -18,9 +19,8 @@ namespace OrganikHaberlesme.Infrastructure
             {
                 configuration.GetSection(nameof(EmailMessageSettings)).Bind(opt);
             });
-
             services.AddScoped<IEmailMessageService, EmailMessageService>();
-
+            services.AddHangfire(opt => opt.UseSqlServerStorage(configuration.GetConnectionString("HangfireSqlCon")));
         }
 
     }

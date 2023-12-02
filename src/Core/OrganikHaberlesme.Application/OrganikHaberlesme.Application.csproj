@@ -17,8 +17,4 @@
     <ProjectReference Include="..\OrganikHaberlesme.Domain\OrganikHaberlesme.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\BackgroundJobs\" />
-  </ItemGroup>
-
 </Project>

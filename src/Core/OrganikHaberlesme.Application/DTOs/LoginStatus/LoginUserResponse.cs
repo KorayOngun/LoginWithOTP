@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrganikHaberlesme.Application.DTOs.LoginStatus
 {
-    public class LoginUserResponse
+    public  class LoginUserResponse
     {
         public Enums.LoginStatus Status { get; set; }
     }

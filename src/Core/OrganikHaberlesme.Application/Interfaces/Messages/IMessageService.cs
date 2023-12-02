@@ -8,6 +8,7 @@ namespace OrganikHaberlesme.Application.Interfaces.Messages
 {
     public interface IMessageService
     {
-        void Send(string to, string message);
+        Task SendAsync(string to, string message);
+        void SendAddQueue(string to, string message);
     }
 }
