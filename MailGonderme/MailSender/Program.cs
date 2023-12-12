@@ -43,7 +43,7 @@ internal class Program
             using (SmtpClient client = new SmtpClient())
             using (MailMessage mailMessage = new MailMessage())
             {
-                client.Credentials = new NetworkCredential("botgg28@hotmail.com", "V)v/_Ld8JmY7eL#");
+                client.Credentials = new NetworkCredential("-", "-");
                 client.Port = 587;
                 client.Host = "smtp.office365.com";
                 client.EnableSsl = true;
