@@ -34,7 +34,7 @@ namespace OrganikHaberlesme.Application.Features.Commands.UserCommands.LoginUser
 
                     return new TwoFactorWaiting { OtpController = otpController, Status = Enums.LoginStatus.TwoFactorWaiting };
                 }
-                return new LoginSuccess { Token ="Token", Status = Enums.LoginStatus.Success };
+                return new LoginSuccess { Token ="giriş başarılı TOKEN => 1234546435745754532412", Status = Enums.LoginStatus.Success };
             }
             return new LoginError {Message = "hata hata hata",Status = Enums.LoginStatus.Error };
         }

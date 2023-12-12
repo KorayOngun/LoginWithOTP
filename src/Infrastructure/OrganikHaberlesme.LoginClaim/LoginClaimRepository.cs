@@ -32,5 +32,6 @@ namespace OrganikHaberlesme.LoginClaim
         {
            var result = await _database.StringSetAsync(key, value,expiry:TimeSpan.FromMinutes(3));
         }
+        
     }
 }

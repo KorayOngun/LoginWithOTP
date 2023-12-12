@@ -35,6 +35,7 @@ namespace OrganikHaberlesme.Application.Features.Commands.UserCommands.CreateUse
                     Id = Guid.NewGuid(),
                     Name = request.Name,
                     Password = request.Password,
+                    TwoFactor = request.TwoFactor,
                 };
                 var result = await _writeRepo.AddAsync(u);
                 return new CreateUserResponse { IsSuccess = result };

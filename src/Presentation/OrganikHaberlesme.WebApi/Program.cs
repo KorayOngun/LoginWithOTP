@@ -21,6 +21,7 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddLoginClaim(builder.Configuration);
 
+
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddCors(opt =>
@@ -40,6 +41,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors("AllowOrigin");
 }
 
 app.UseHttpsRedirection();
@@ -50,7 +52,6 @@ app.Services.DbSeed();
 
 app.UseAuthorization();
 
-app.UseCors("AllowOrigin");
 
 app.MapControllers();
 

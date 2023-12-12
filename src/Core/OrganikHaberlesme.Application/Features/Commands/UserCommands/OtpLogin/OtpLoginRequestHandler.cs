@@ -23,7 +23,7 @@ namespace OrganikHaberlesme.Application.Features.Commands.UserCommands.OtpLogin
             if(await _loginClaimServices.OtpCheck(request.OtpController, request.Otp))
             {
                 //TODO 01: Burayı düzeltmeyi unutma !!!
-                return new LoginSuccess() { Token = "al sana token" ,Status = Enums.LoginStatus.Success};
+                return new LoginSuccess() { Token = "giriş başarılı TOKEN => 1234546435745754532412", Status = Enums.LoginStatus.Success};
             }
             return new LoginError { Message = "hata hata hata", Status = Enums.LoginStatus.Error };
         }

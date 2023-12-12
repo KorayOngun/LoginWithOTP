@@ -23,7 +23,14 @@ namespace OrganikHaberlesme.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateUserRequest request)
         {
-            return Ok(await _mediator.Send(request));
+            if (ModelState.IsValid)
+            {
+                var result = await _mediator.Send(request);
+                if (result.IsSuccess)
+                    return Ok(result);
+                return BadRequest(result);  
+            }
+            return BadRequest();
         }
 
         [HttpPost]
